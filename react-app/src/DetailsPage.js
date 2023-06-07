@@ -1,12 +1,11 @@
-// DetailsPage.js
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 const DetailsPage = () => {
   const { id } = useParams();
   const users = useSelector((state) => state.users);
-  const user = users.find((user) => user.id === Number(id));
+  const user = users.find((user) => user.id === parseInt(id));
 
   if (!user) {
     return <div>Loading...</div>;

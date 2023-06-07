@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUsers } from './actions';
 import { fetchUsers } from './api';
 import Pagination from './Pagination';
+import { Link } from 'react-router-dom';
+import './App.css';
 
 const ListView = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [perPage] = useState(5);
+  const [perPage] = useState(11);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +31,7 @@ const ListView = () => {
       <ul className="list-group">
         {users.map((user) => (
           <li className="list-group-item" key={user.id}>
-            <a href={`/details/${user.id}`}>{user.first_name} {user.last_name}</a>
+            <Link to={`/details/${user.id}`}>{user.first_name} {user.last_name}</Link>
           </li>
         ))}
       </ul>

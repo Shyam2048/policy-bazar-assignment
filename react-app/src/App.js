@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ListView from './ListView';
 import DetailsPage from './DetailsPage';
 
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={ListView} />
-        <Route path="/details/:id" component={DetailsPage} />
-      </Switch>
+     <Routes>
+        <Route path="/" element={<ListView />} />
+        <Route path="/details/:id" element={<DetailsPage />} />
+      </Routes>
     </Router>
   );
 };
